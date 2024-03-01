@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page</title>
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            overflow: hidden; /* Prevents scrollbars */
+        }
+        /* CSS for video background */
+        video#bgvid {
+            position: fixed; /* Fixed to cover entire screen */
+            right: 0;
+            bottom: 0;
+            min-width: 100%; 
+            min-height: 100%;
+            width: auto; 
+            height: auto;
+            z-index: -100; /* Behind everything */
+            background: no-repeat;
+            background-size: cover;
+        }
+        #dropdown-menu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+        /* Existing CSS */
+        h1 {
+            text-align: center;
+            font-weight: bold;
+            color: red;
+            z-index: 1; /* Ensure it's above the video */
+        }
+        .map-container {
+            display: none;
+            z-index: 1; /* Ensure it's above the video */
+        }
+        .legend {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: white;
+            border: 1px solid black;
+            padding: 10px;
+            z-index: 1000;
+        }
+        .legend-item {
+            margin-bottom: 5px;
+        }
+        .legend-color {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <video id="bgvid" playsinline autoplay muted loop>
+        <source src="volcano.mp4" type="video/mp4">
+    </video>
+
+    <p style="font-size: 30px; text-align: center;">VOLCANOES</p>
+
+    <div id="Volcanoes">
+        <p style="text-align: center;">Here is some data about volcanic activity over time:</p>
+    </div>
+ <!-- Dropdown menu for world maps -->
+ <div id="dropdown-menu">
+    <select id="world-maps">
+        <option value="">Select</option>
+        <option value="timeline_visualization.png">Timeline of Volcanic Events</option>
+        <option value="vei_map.html">VEI Map</option>
+        <option value="death_map.html">Casualties by Volcanic Event</option>
+        <option value="damages_map.html">Economic Damages by Volcanic Event</option>
+        <!-- Add more options as needed -->
+    </select>
+</div>
+<!-- Container for the map or image -->
+<div id="map-container" class="map-container">
+    <!-- Placeholder for map or image -->
+</div>
+<div id="image-container" class="image-container">
+    <!-- Placeholder for image content -->
+</div>
+<!-- Include your Folium maps -->
+<div id="vei_map" class="map-container">
+    <!-- Include your VEI Map HTML here -->
+    <iframe src="vei_map.html" width="100%" height="500px"></iframe>
+</div>
+<div id="death_map" class="map-container">
+    <!-- Include your Death Map HTML here -->
+    <iframe src="death_map.html" width="100%" height="500px"></iframe>
+    <!-- Legend section for the death map -->
+    <div class="legend">
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: blue;"></div>
+            <span>No Deaths</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: green;"></div>
+            <span>0-10 Deaths</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: yellow;"></div>
+            <span>11-50 Deaths</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: orange;"></div>
+            <span>51-100 Deaths</span>
+        </div>
+        <div class="legend-item">
+            <div class="legend-color" style="background-color: red;"></div>
+            <span>More than 100 Deaths</span>
+        </div>
+    </div>
+</div>
+<div id="damages_map" class="map-container">
+    <!-- Include your Damages Map HTML here -->
+    <iframe src="damages_map.html" width="100%" height="500px"></iframe>
+</div>
+<!-- JavaScript code to show/hide map or image based on dropdown selection -->
+<script>
+    document.getElementById("world-maps").addEventListener("change", function() {
+        var selectedMap = this.value;
+        var mapContainer = document.getElementById("map-container");
+        var imageContainer = document.getElementById("image-container");
+        if (selectedMap) {
+            if (selectedMap.endsWith('.html')) {
+                // Load HTML file
+                mapContainer.style.display = 'block';
+                mapContainer.innerHTML = ''; // Clear previous content
+                imageContainer.style.display = 'none'; // Hide image container if HTML is selected
+                var iframe = document.createElement('iframe');
+                iframe.src = selectedMap;
+                iframe.width = '100%';
+                iframe.height = '500px';
+                mapContainer.appendChild(iframe);
+            } else {
+                // Load PNG file
+                mapContainer.style.display = 'none'; // Hide map container if PNG is selected
+                imageContainer.style.display = 'block';
+                imageContainer.innerHTML = ''; // Clear previous content
+                var img = document.createElement('img');
+                img.src = selectedMap;
+                img.style.width = '1000px'; // Set a specific width for the image
+                img.style.height = 'auto'; // Maintain aspect ratio
+                imageContainer.appendChild(img);
+            }
+        } else {
+            // Clear content if no option selected
+            mapContainer.style.display = 'none';
+            imageContainer.style.display = 'none';
+            mapContainer.innerHTML = '';
+            imageContainer.innerHTML = '';
+        }
+        if (selectedMap === "death_map.html") {
+// Show legend only for the death map
+document.querySelector("#death_map .legend").style.display = "block";
+} else {
+// Hide legend for other maps
+document.querySelector("#death_map .legend").style.display = "none";
+}
+    });
+</script>
+</body>
+</html>
