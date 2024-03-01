@@ -43,10 +43,11 @@
         /* CSS for image container */
         .image-container {
             width: 100%;
-            height: 500px; /* Default height */
-            overflow: hidden; /* Hide any overflow */
-            display: block;
-            margin: auto; /* Center the container horizontally */
+            align: center
+        }
+        .image-container img {
+            max-width: 100%; /* Ensure image does not exceed container width */
+            max-height: 100%; /* Ensure image does not exceed container height */
         }
     </style>
 </head>
