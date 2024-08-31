@@ -1,10 +1,10 @@
 # GEOSPATIAL VISUALIZATION OF VOLCANIC ACTIVITY
 ## By: Can "Jon" Ayter, Amanda Derdiger, Andrew Koller, and Natalia Mitchell
 
-### Introduction
+## Introduction
 Our project develops an interactive web-based platform to visualize volcanic activity worldwide, leveraging dynamic maps to present data on the Volcanic Explosivity Index (VEI), casualties, and economic damages associated with volcanic events. Incorporating advanced features such as a dropdown menu for seamless navigation between different data visualizations and an MP4 video as the background enhances user engagement. This platform serves as an educational and analytical tool, offering insights into the impact of volcanoes over time through an immersive user experience.
 
-### Data
+## Data
 Our dataset is sourced from Kaggle and contains information on volcanic events, including:
 
 * Year of eruption
@@ -14,7 +14,7 @@ Our dataset is sourced from Kaggle and contains information on volcanic events, 
 * Total Damage (in millions of dollars)
 * Total Houses Destroyed
 
-### Process
+## Process
 * Data Cleaning and Preparation
 * Selected columns of interest from the original dataset
 * Dropped rows with missing values in critical fields (Latitude, Longitude, VEI, Year)
@@ -38,7 +38,6 @@ Our dataset is sourced from Kaggle and contains information on volcanic events, 
 ### Casualties Map
 * Developed a map showing casualties from volcanic events
 * Used color-coding to represent different levels of casualties
-
 
 ### Economic Damages Map
 * Created a map highlighting the top 10 events with the most economic damage
@@ -66,25 +65,25 @@ Our dataset is sourced from Kaggle and contains information on volcanic events, 
 * Includes heatmap layer for damage intensity
 * Saved as 'damages_map.html'
 
-### Tools Used
+## Tools Used
 * Python
 * Pandas for data manipulation
 * Matplotlib for static visualizations
 * Folium for interactive maps
 * Branca for color scales
 
-### How to View the Project
+## How to View the Project
 * Clone the repository
 * Install required dependencies (Pandas, Matplotlib, Folium, Branca)
 * Run the Jupyter Notebook to generate visualizations
 * Open the HTML files in a web browser to view interactive maps
 
-### Future Work
+## Future Work
 * Implement real-time data integration for current volcanic activities
 * Enhance user interactivity with filtering options
 * Develop predictive models for volcanic eruption risk assessment
 
-### About the Authors
+## About the Authors
 * [Can "Jon" Ayter](https://github.com/canayter)
 * [Amanda Derdiger](https://github.com/aderdiger)
 * [Andrew Koller](https://github.com/AEKoller)
