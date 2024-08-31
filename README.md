@@ -1,12 +1,11 @@
 # GEOSPATIAL VISUALIZATION OF VOLCANIC ACTIVITY
-## By: Can "Jon" Ayter, Amanda Derdiger, Andrew Koller, and Natalia Mitchell
+By: Can "Jon" Ayter, Amanda Derdiger, Andrew Koller, and Natalia Mitchell
 
 ## Introduction
 Our project develops an interactive web-based platform to visualize volcanic activity worldwide, leveraging dynamic maps to present data on the Volcanic Explosivity Index (VEI), casualties, and economic damages associated with volcanic events. Incorporating advanced features such as a dropdown menu for seamless navigation between different data visualizations and an MP4 video as the background enhances user engagement. This platform serves as an educational and analytical tool, offering insights into the impact of volcanoes over time through an immersive user experience.
 
 ## Data
 Our dataset is sourced from Kaggle and contains information on volcanic events, including:
-
 * Year of eruption
 * Latitude and Longitude
 * Volcanic Explosivity Index (VEI)
@@ -21,7 +20,6 @@ Our dataset is sourced from Kaggle and contains information on volcanic events, 
 * Filled missing values with 0 for Total Deaths, Total Damage, and Total Houses Destroyed
 
 ## Visualization Development
-
 ### Timeline Visualization
 * Created a bar graph showing the number of eruptions per year
 * Identified and handled potential outliers in the dataset
